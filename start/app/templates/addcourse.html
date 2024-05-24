@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Course</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'add_course.css' %}" />
+  </head>
+  <body>
+    <h2>Add Course</h2>
+    <form class="formaddcourse" method="post" enctype="multipart/form-data" action="{% url 'add_new_course' %}">
+      {% csrf_token %}
+      <div class="item-field">
+        <label for="name">Name:</label><br />
+        <input type="text"  name="name" /><br />
+      </div>
+      <div class="item-field">
+        <label for="description">Description:</label><br />
+        <input type="text" name="description" /><br />
+      </div>
+      <div class="item-field">
+        <label for="price">Price:</label><br />
+        <input type="text"  name="price" /><br />
+      </div>
+      <input class="submit" type="submit" value="Add" />
+    </form>
+  </body>
+</html>

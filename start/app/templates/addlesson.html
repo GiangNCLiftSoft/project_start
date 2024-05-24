@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Lesson</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'add_lesson.css' %}">
+    <script>
+      function addMore() {
+        var form = document.getElementById("list-item");
+        var inputContainer = document.createElement("div");
+        inputContainer.classList.add("item");
+        inputContainer.innerHTML = `
+                <div>
+                    <label for="name">Lesson Name:</label><br>
+                    <input type="text" name="name"><br>
+                </div>
+                <div>
+                    <label for="time">Lesson Time:</label><br>
+                    <input type="text" name="time"><br>
+                </div>
+            `;
+        form.appendChild(inputContainer);
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Add Lesson</h2>
+    <form id="lessonForm" method="post" action="{% url 'add_list_lesson' course.id %}">
+      {% csrf_token %}
+
+      <div id="list-item">
+        <div class="item">
+          <div>
+            <label for="name">Lesson Name:</label><br />
+            <input type="text" name="name" /><br />
+          </div>
+          <div>
+            <label for="time">Lesson Time:</label><br />
+            <input type="text" name="time" /><br />
+          </div>
+        </div>
+      </div>
+
+      <input type="button" value="Add More" onclick="addMore()" />
+      <input type="submit" value="Add Lessons" />
+    </form>
+  </body>
+</html>
