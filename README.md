@@ -7,4 +7,5 @@
 	    + Filter courses by tag
   ## Diagram:
  
-	![image](https://github.com/GiangNCLiftSoft/project_start/assets/170294749/c12e93c7-762b-4519-a60f-6f5727769926)
+	![image](https://github.com/GiangNCLiftSoft/project_start/assets/170294749/3a8fcba9-7ed4-4b99-9675-aa44ce0d731c)
+
