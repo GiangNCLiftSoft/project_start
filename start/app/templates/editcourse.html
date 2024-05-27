@@ -23,6 +23,15 @@
             <label for="price">Price:</label><br>
             <input type="text" id="price" name="price" value="{{ course.price }}"><br>
         </div>
+        <div class="item-field">
+            <label for="tags">Tags:</label><br>
+            {% for tag in tags %}
+                <input type="checkbox" id="tag{{ tag.id }}" name="tags" value="{{ tag.id }}" 
+                {% if tag in course.tag.all %}checked{% endif %}>
+                <label for="tag{{ tag.id }}">{{ tag.name }}</label><br>
+            {% endfor %}
+        </div>
+
         <input class="submit" type="submit" value="Save Changes">
     </form>
 </body>

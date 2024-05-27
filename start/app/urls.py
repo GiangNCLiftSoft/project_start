@@ -1,14 +1,19 @@
-from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from . import views
 urlpatterns = [
     path('',views.course.index,name="index"),
-    path('add/', views.course.add_course, name='add_course'),
-    path('add_new_course/', views.course.add_new_course, name='add_new_course'),
-    path('edit/<int:course_id>', views.course.reder_edit_course, name='edit_course_page'),
-    path('editcourse/<int:course_id>', views.course.add_edit_course, name='add_edit'),  
-    path('delete/<int:course_id>/', views.course.delete_course, name='delete_course'),
-    path('add_lesson/<int:course_id>', views.lesson.add_lesson_page, name="add_lessons" ) ,
-    path('addlistlesson/',views.lesson.add_list_lesson,name="add_list_lesson"),
 
+    path('course/add/', views.course.add_new_course, name='add_new_course'),
+    path('course/update/<int:course_id>', views.course.add_edit_course, name='add_edit'),  
+    path('course/delete/<int:course_id>/', views.course.delete_course, name='delete_course'),
+   
+    path('course/addlistlesson/<int:course_id>',views.lesson.add_list_lesson,name="add_list_lesson"),
+
+    path('lesson/delete/<int:course_id>', views.lesson.delete_lessons,name='delete_lessons'),
+    path('lesson/update/<int:course_id>/<int:lesson_id>', views.lesson.update_lesson,name='update_lessons'),
+    path('lesson/<int:course_id>',views.lesson.lessons,name="view_list_lesson"),
+
+    path('tags/', views.tag.tag_list, name='tag_list'),
+    path('tags/add/', views.tag.add_tag, name='add_tag'),
+    path('tags/delete/<int:tag_id>/', views.tag.delete_tag, name='delete_tag'),
 ]

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Lesson</title>
+</head>
+<body>
+    <h1>{{lesson.name}}</h1>
+   <form method="post" enctype="multipart/form-data" action="{% url 'update_lessons' course_id=course.id lesson_id=lesson.id %}">
+        {% csrf_token %}
+        <label for="name">Lesson Name:</label><br>
+        <input type="text" id="name" name="name" value="{{ lesson.name }}"><br>
+        <label for="time">Lesson Time:</label><br>
+        <input type="text" id="time" name="time" value="{{ lesson.time }}"><br>
+        <input type="submit" value="Save Changes">
+    </form> 
+</body>
+</html>

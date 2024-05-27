@@ -22,3 +22,7 @@ th {
 .btn {
   text-align: center;
 }
+.fillter{
+  display:flex;
+  flex-direction:row
+}
